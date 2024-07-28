@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:musicaster/app/app.dart';
+import 'package:musicaster/app/data/news_data.dart';
 import 'package:musicaster/app/internal/const/boxes.dart';
+import 'package:musicaster/app/models/idea.dart';
+import 'package:musicaster/app/models/news.dart';
 import 'package:musicaster/app/models/settings.dart';
 
 void main() async {
@@ -12,12 +15,16 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter<Settings>(SettingsAdapter());
+  Hive.registerAdapter<Idea>(IdeaAdapter());
+  Hive.registerAdapter<News>(NewsAdapter());
 
   await Hive.openBox<Settings>(Boxes.settings);
+  await Hive.openBox<Idea>(Boxes.idea);
+  await Hive.openBox<News>(Boxes.news);
 
-  // if (Hive.box<Celestial>(Boxes.celestial).isEmpty) {
-  //   await CelestialData.addData();
-  // }
+  if (Hive.box<News>(Boxes.news).isEmpty) {
+    await NewsData.addData();
+  }
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (value) => initializeDateFormatting('en', null).then(

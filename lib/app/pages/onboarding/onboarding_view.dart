@@ -6,6 +6,7 @@ import 'package:hive/hive.dart';
 import 'package:musicaster/app/internal/const/boxes.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
 import 'package:musicaster/app/internal/const/ui.dart';
+import 'package:musicaster/app/internal/utils.dart';
 import 'package:musicaster/app/models/settings.dart';
 import 'package:musicaster/app/pages/onboarding/widgets/page1.dart';
 import 'package:musicaster/app/pages/onboarding/widgets/page2.dart';
@@ -182,20 +183,28 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 IntrinsicHeight(
                   child: Row(
                     children: [
-                      SizedBox(
-                        width: 157.w,
-                        child: Text(
-                          'Terms of use',
-                          style: context.s8w400.copyWith(color: greyDark),
-                          textAlign: TextAlign.right,
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () async => openUrl(Hive.box<Settings>(Boxes.settings).getAt(0)!.termsOfUseUri),
+                        child: SizedBox(
+                          width: 157.w,
+                          child: Text(
+                            'Terms of use',
+                            style: context.s8w400.copyWith(color: greyDark),
+                            textAlign: TextAlign.right,
+                          ),
                         ),
                       ),
                       VerticalDivider(color: black, thickness: 0.5.w, width: 20.w),
-                      SizedBox(
-                        width: 157.w,
-                        child: Text(
-                          'Privacy policy',
-                          style: context.s8w400.copyWith(color: greyDark),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () async => openUrl(Hive.box<Settings>(Boxes.settings).getAt(0)!.privacyPolicyUri),
+                        child: SizedBox(
+                          width: 157.w,
+                          child: Text(
+                            'Privacy policy',
+                            style: context.s8w400.copyWith(color: greyDark),
+                          ),
                         ),
                       ),
                     ],

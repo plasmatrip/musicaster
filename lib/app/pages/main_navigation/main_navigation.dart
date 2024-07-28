@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
 import 'package:musicaster/app/pages/main_navigation/widgets/drawer_panel.dart';
 import 'package:musicaster/app/routing/app_router.gr.dart';
@@ -18,6 +19,10 @@ class _MainView extends State<MainNavigation> {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
+        MusicalIdeasView(),
+        RecordsView(),
+        InstrumentsView(),
+        NewsView(),
         SettingsView(),
       ],
       builder: (context, child) {
@@ -64,9 +69,13 @@ class _MainView extends State<MainNavigation> {
                     },
                   ),
                   const Spacer(),
-                  SizedBox(
-                    width: 24.h,
-                  )
+                  switch (tabsRouter.activeIndex) {
+                    0 => SvgPicture.asset('assets/icons/Pen.svg', width: 24.w, height: 24.h),
+                    1 => SvgPicture.asset('assets/icons/Add Circle.svg', width: 24.w, height: 24.h),
+                    2 => SvgPicture.asset('assets/icons/Magnifer.svg', width: 24.w, height: 24.h),
+                    3 => SvgPicture.asset('assets/icons/Magnifer.svg', width: 24.w, height: 24.h),
+                    _ => SizedBox(width: 24.h),
+                  }
                 ],
               ),
             ),

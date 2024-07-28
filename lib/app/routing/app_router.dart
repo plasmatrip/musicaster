@@ -10,8 +10,13 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           page: MainNavigation.page,
           children: [
+            AutoRoute(page: MusicalIdeasView.page),
+            AutoRoute(page: RecordsView.page),
+            AutoRoute(page: InstrumentsView.page),
+            AutoRoute(page: NewsView.page),
             AutoRoute(page: SettingsView.page),
           ],
         ),
+        AutoRoute(page: SelectedNewsView.page),
       ];
 }

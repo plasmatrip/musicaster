@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This application needs access to your phone's camera so that you can take a picture of the musical instrument.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This application needs access to the photo gallery so that you can select a picture of the musical instrument.</string>
 </dict>
 </plist>

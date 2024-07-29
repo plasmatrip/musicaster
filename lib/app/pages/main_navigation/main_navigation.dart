@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
+import 'package:musicaster/app/pages/main_navigation/widgets/add_instrument_button.dart';
 import 'package:musicaster/app/pages/main_navigation/widgets/drawer_panel.dart';
 import 'package:musicaster/app/routing/app_router.gr.dart';
 
@@ -87,6 +88,8 @@ class _MainView extends State<MainNavigation> {
           ),
           body: child,
           drawer: DrawerPanel(context: context, tabsRouter: tabsRouter),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: tabsRouter.activeIndex == 2 ? const AddInstrumentButton() : null,
         );
       },
     );

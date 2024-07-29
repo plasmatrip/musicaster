@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
 import 'package:musicaster/app/internal/const/ui.dart';
 import 'package:musicaster/app/repository/idea_repo.dart';
+import 'package:musicaster/app/repository/instrument_repo.dart';
 import 'package:musicaster/app/routing/app_router.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +33,7 @@ class _AppState extends State<App> {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => IdeaRepo()),
+          ChangeNotifierProvider(create: (context) => InstrumentRepo()),
         ],
         builder: (context, child) {
           return DevicePreview(

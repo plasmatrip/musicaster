@@ -20,5 +20,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: SelectedNewsView.page),
         AutoRoute(page: AddIdeaView.page),
         AutoRoute(page: SelectedIdeaView.page),
+        AutoRoute(page: AddInstrumentView.page),
+        AutoRoute(page: SelectedInstrumentView.page),
       ];
 }

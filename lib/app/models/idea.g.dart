@@ -20,15 +20,16 @@ class IdeaAdapter extends TypeAdapter<Idea> {
       title: fields[0] as String,
       genre: fields[1] as String,
       instruments: fields[2] as String,
-      instrumentsList: (fields[3] as List).cast<String>(),
+      instrumentsList: (fields[3] as List).cast<int>(),
       description: fields[4] as String,
+      date: fields[5] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, Idea obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class IdeaAdapter extends TypeAdapter<Idea> {
       ..writeByte(3)
       ..write(obj.instrumentsList)
       ..writeByte(4)
-      ..write(obj.description);
+      ..write(obj.description)
+      ..writeByte(5)
+      ..write(obj.date);
   }
 
   @override

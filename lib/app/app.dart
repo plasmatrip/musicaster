@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
 import 'package:musicaster/app/internal/const/ui.dart';
-import 'package:musicaster/app/repository/client_repo.dart';
+import 'package:musicaster/app/repository/idea_repo.dart';
 import 'package:musicaster/app/routing/app_router.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +31,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => ClientRepo()),
+          ChangeNotifierProvider(create: (context) => IdeaRepo()),
         ],
         builder: (context, child) {
           return DevicePreview(
@@ -49,7 +49,7 @@ class _AppState extends State<App> {
                         GlobalCupertinoLocalizations.delegate,
                         GlobalWidgetsLocalizations.delegate
                       ],
-                      supportedLocales: const [Locale('ru', 'RU')],
+                      supportedLocales: const [Locale('en', 'EN')],
                       theme: ThemeData(
                         scaffoldBackgroundColor: bg,
                         appBarTheme: AppBarTheme(

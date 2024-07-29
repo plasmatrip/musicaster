@@ -39,7 +39,7 @@ class NewsItem extends StatelessWidget {
                   children: [
                     Text(news.tag, style: context.s12w400.copyWith(color: black)),
                     SizedBox(height: 4.h),
-                    Text(news.title, style: context.s16w400b.copyWith(color: black, letterSpacing: -1.w)),
+                    Text(news.title, style: context.s16w400b.copyWith(color: black, letterSpacing: -1.w, height: 0)),
                     const Spacer(),
                     Text(news.time, style: context.s12w400.copyWith(color: greyDark)),
                   ],

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:musicaster/app/internal/const/colors.dart';
@@ -70,7 +71,11 @@ class _MainView extends State<MainNavigation> {
                   ),
                   const Spacer(),
                   switch (tabsRouter.activeIndex) {
-                    0 => SvgPicture.asset('assets/icons/Pen.svg', width: 24.w, height: 24.h),
+                    0 => GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () async => AutoRouter.of(context).push(const AddIdeaView()),
+                        child: SvgPicture.asset('assets/icons/Pen.svg', width: 24.w, height: 24.h),
+                      ),
                     1 => SvgPicture.asset('assets/icons/Add Circle.svg', width: 24.w, height: 24.h),
                     2 => SvgPicture.asset('assets/icons/Magnifer.svg', width: 24.w, height: 24.h),
                     3 => SvgPicture.asset('assets/icons/Magnifer.svg', width: 24.w, height: 24.h),

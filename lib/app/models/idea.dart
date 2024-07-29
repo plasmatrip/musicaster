@@ -14,21 +14,25 @@ class Idea extends HiveObject {
   String instruments;
 
   @HiveField(3)
-  List<String> instrumentsList;
+  List<int> instrumentsList;
 
   @HiveField(4)
   String description;
 
+  @HiveField(5)
+  DateTime date;
+
   bool isNotEmpty() {
-    return title.isNotEmpty && genre.isNotEmpty && (instruments.isEmpty || instrumentsList.isNotEmpty) && description.isNotEmpty;
+    return title.isNotEmpty && genre.isNotEmpty && (instruments.isNotEmpty || instrumentsList.isNotEmpty) && description.isNotEmpty;
   }
 
   void clean() {
     title = '';
     genre = '';
     instruments = '';
-    instrumentsList = [''];
+    instrumentsList = [];
     description = '';
+    date = DateTime.now();
   }
 
   void copy(Idea idea) {
@@ -37,6 +41,7 @@ class Idea extends HiveObject {
     instruments = idea.instruments;
     instrumentsList = idea.instrumentsList;
     description = idea.description;
+    date = idea.date;
   }
 
   static Idea create({Idea? from}) {
@@ -47,9 +52,10 @@ class Idea extends HiveObject {
         instruments: from.instruments,
         instrumentsList: from.instrumentsList,
         description: from.description,
+        date: DateTime.now(),
       );
     }
-    return Idea(title: '', genre: '', instruments: '', instrumentsList: [''], description: '');
+    return Idea(title: '', genre: '', instruments: '', instrumentsList: [], description: '', date: DateTime.now());
   }
 
   Idea({
@@ -58,5 +64,6 @@ class Idea extends HiveObject {
     required this.instruments,
     required this.instrumentsList,
     required this.description,
+    required this.date,
   });
 }

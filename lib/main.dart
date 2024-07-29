@@ -8,6 +8,7 @@ import 'package:musicaster/app/internal/const/boxes.dart';
 import 'package:musicaster/app/models/idea.dart';
 import 'package:musicaster/app/models/instrument.dart';
 import 'package:musicaster/app/models/news.dart';
+import 'package:musicaster/app/models/record.dart';
 import 'package:musicaster/app/models/settings.dart';
 
 void main() async {
@@ -19,11 +20,13 @@ void main() async {
   Hive.registerAdapter<Idea>(IdeaAdapter());
   Hive.registerAdapter<News>(NewsAdapter());
   Hive.registerAdapter<Instrument>(InstrumentAdapter());
+  Hive.registerAdapter<Record>(RecordAdapter());
 
   await Hive.openBox<Settings>(Boxes.settings);
   await Hive.openBox<Idea>(Boxes.idea);
   await Hive.openBox<News>(Boxes.news);
   await Hive.openBox<Instrument>(Boxes.instrument);
+  await Hive.openBox<Record>(Boxes.record);
 
   if (Hive.box<News>(Boxes.news).isEmpty) {
     await NewsData.addData();

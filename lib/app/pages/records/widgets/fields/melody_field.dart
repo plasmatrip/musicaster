@@ -55,7 +55,7 @@ class _MelodyFieldState extends State<MelodyField> {
           onTap: () async {
             FilePickerResult? result;
             try {
-              result = await FilePicker.platform.pickFiles();
+              result = await FilePicker.platform.pickFiles(type: FileType.audio);
               if (result != null && context.mounted) {
                 context.read<RecordsRepo>().melody = result.files.single.path!;
                 final waveformData = await controller.extractWaveformData(

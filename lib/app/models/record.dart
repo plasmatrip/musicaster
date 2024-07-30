@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 part 'record.g.dart';
 
 @HiveType(typeId: 4)
-class Record extends HiveObject {
+class Records extends HiveObject {
   @HiveField(0)
   String title;
 
@@ -35,7 +35,7 @@ class Record extends HiveObject {
     date = DateTime.now();
   }
 
-  void copy(Record idea) {
+  void copy(Records idea) {
     title = idea.title;
     melody = idea.melody;
     chorus = idea.chorus;
@@ -44,9 +44,9 @@ class Record extends HiveObject {
     date = idea.date;
   }
 
-  static Record create({Record? from}) {
+  static Records create({Records? from}) {
     if (from != null) {
-      return Record(
+      return Records(
         title: from.title,
         melody: from.melody,
         chorus: from.chorus,
@@ -55,10 +55,10 @@ class Record extends HiveObject {
         date: DateTime.now(),
       );
     }
-    return Record(title: '', melody: '', chorus: '', verse: [''], description: '', date: DateTime.now());
+    return Records(title: '', melody: '', chorus: '', verse: [''], description: '', date: DateTime.now());
   }
 
-  Record({
+  Records({
     required this.title,
     required this.melody,
     required this.chorus,

@@ -6,17 +6,17 @@ part of 'record.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class RecordAdapter extends TypeAdapter<Record> {
+class RecordsAdapter extends TypeAdapter<Records> {
   @override
   final int typeId = 4;
 
   @override
-  Record read(BinaryReader reader) {
+  Records read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Record(
+    return Records(
       title: fields[0] as String,
       melody: fields[2] as String,
       chorus: fields[3] as String,
@@ -27,7 +27,7 @@ class RecordAdapter extends TypeAdapter<Record> {
   }
 
   @override
-  void write(BinaryWriter writer, Record obj) {
+  void write(BinaryWriter writer, Records obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
@@ -50,7 +50,7 @@ class RecordAdapter extends TypeAdapter<Record> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RecordAdapter &&
+      other is RecordsAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

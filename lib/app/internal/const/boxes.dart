@@ -3,5 +3,5 @@ class Boxes {
   static const String idea = 'idea_box';
   static const String news = 'news_box';
   static const String instrument = 'instrumemt_box';
-  static const String record = 'record_box';
+  static const String records = 'record_box';
 }

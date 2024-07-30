@@ -54,6 +54,7 @@ class SelectedInstrumentView extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Row(
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         if (instrument.icon.isNotEmpty) ...[
                           Container(
@@ -69,7 +70,14 @@ class SelectedInstrumentView extends StatelessWidget {
                           SvgPicture.asset('assets/icons/instruments/${instrument.instrumentId}on.svg'),
                         ],
                         SizedBox(width: 16.w),
-                        Text(instrument.title, style: context.s20w400.copyWith(color: black)),
+                        Expanded(
+                          child: Text(
+                            instrument.title,
+                            style: context.s20w400.copyWith(color: black),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
                       ],
                     ),
                     SizedBox(height: 16.h),
@@ -89,7 +97,10 @@ class SelectedInstrumentView extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 16.h),
-                    Text(instrument.description, style: context.s14w400.copyWith(color: black)),
+                    Text(
+                      instrument.description,
+                      style: context.s14w400.copyWith(color: black),
+                    ),
                   ],
                 ),
               ),

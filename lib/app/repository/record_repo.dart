@@ -3,68 +3,77 @@ import 'package:hive/hive.dart';
 import 'package:musicaster/app/internal/const/boxes.dart';
 import 'package:musicaster/app/models/record.dart';
 
-class RecordRepo with ChangeNotifier {
-  Box repo = Hive.box<Record>(Boxes.record);
+class RecordsRepo with ChangeNotifier {
+  Box repo = Hive.box<Records>(Boxes.records);
 
-  Record _record = Record.create();
+  Records _records = Records.create();
 
   bool editMode = false;
   int editKey = 0;
 
-  String get title => _record.title;
+  String get title => _records.title;
   set title(String value) {
-    _record.title = value;
+    _records.title = value;
     notifyListeners();
   }
 
-  String get melody => _record.melody;
+  String get melody => _records.melody;
   set melody(String value) {
-    _record.melody = value;
+    _records.melody = value;
     notifyListeners();
   }
 
-  String get chorus => _record.chorus;
+  String get chorus => _records.chorus;
   set chorus(String value) {
-    _record.chorus = value;
+    _records.chorus = value;
     notifyListeners();
   }
 
-  String get description => _record.description;
+  String get description => _records.description;
   set description(String value) {
-    _record.description = value;
+    _records.description = value;
     notifyListeners();
   }
 
   String getVerse(int index) {
-    if (_record.isNotEmpty()) {
-      return _record.verse[index];
+    if (_records.isNotEmpty()) {
+      return _records.verse[index];
     }
     return '';
   }
 
+  void setVerse(int index, String value) {
+    if (_records.verse.isNotEmpty) {
+      _records.verse[index] = value;
+      notifyListeners();
+    }
+  }
+
+  int get verseLen => _records.verse.length;
+
   void addVerse() {
-    if (_record.verse.isNotEmpty) {
-      if (_record.verse.last.isNotEmpty) {
-        _record.verse.add('');
+    if (_records.verse.isNotEmpty) {
+      if (_records.verse.last.isNotEmpty) {
+        _records.verse.add('');
         notifyListeners();
       }
     }
   }
 
   void clean() {
-    _record.clean();
+    _records.clean();
     editKey = 0;
     editMode = false;
   }
 
   Future<void> save() async {
     if (editMode) {
-      Record record = repo.get(editKey);
-      record.copy(_record);
-      record.save();
+      Records records = repo.get(editKey);
+      records.copy(_records);
+      records.save();
     } else {
-      Record record = Record.create(from: _record);
-      repo.add(record);
+      Records records = Records.create(from: _records);
+      repo.add(records);
     }
     clean();
     notifyListeners();
@@ -78,19 +87,19 @@ class RecordRepo with ChangeNotifier {
         return;
       }
     }
-    Record record = repo.get(key);
-    record.delete();
+    Records records = repo.get(key);
+    records.delete();
     notifyListeners();
   }
 
   void edit(int key) {
-    _record.copy(repo.get(key));
+    _records.copy(repo.get(key));
     editMode = true;
     editKey = key;
   }
 
   bool canSave() {
-    return _record.isNotEmpty();
+    return _records.isNotEmpty();
   }
 
   Iterable records() {

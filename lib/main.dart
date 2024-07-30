@@ -20,13 +20,13 @@ void main() async {
   Hive.registerAdapter<Idea>(IdeaAdapter());
   Hive.registerAdapter<News>(NewsAdapter());
   Hive.registerAdapter<Instrument>(InstrumentAdapter());
-  Hive.registerAdapter<Record>(RecordAdapter());
+  Hive.registerAdapter<Records>(RecordsAdapter());
 
   await Hive.openBox<Settings>(Boxes.settings);
   await Hive.openBox<Idea>(Boxes.idea);
   await Hive.openBox<News>(Boxes.news);
   await Hive.openBox<Instrument>(Boxes.instrument);
-  await Hive.openBox<Record>(Boxes.record);
+  await Hive.openBox<Records>(Boxes.records);
 
   if (Hive.box<News>(Boxes.news).isEmpty) {
     await NewsData.addData();

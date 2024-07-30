@@ -35,7 +35,7 @@ class _AppState extends State<App> {
         providers: [
           ChangeNotifierProvider(create: (context) => IdeaRepo()),
           ChangeNotifierProvider(create: (context) => InstrumentRepo()),
-          ChangeNotifierProvider(create: (context) => RecordRepo()),
+          ChangeNotifierProvider(create: (context) => RecordsRepo()),
         ],
         builder: (context, child) {
           return DevicePreview(

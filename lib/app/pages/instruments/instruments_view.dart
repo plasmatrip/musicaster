@@ -12,7 +12,7 @@ class InstrumentsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Iterable instruments = context.watch<InstrumentRepo>().Instruments();
+    Iterable instruments = context.watch<InstrumentRepo>().instruments();
     return ListView.separated(
       padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 24.h, bottom: 94.h),
       itemCount: instruments.length,

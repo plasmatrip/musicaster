@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:musicaster/app/internal/const/colors.dart';
 import 'package:musicaster/app/models/idea.dart';
 import 'package:musicaster/app/pages/musical_ideas/widgets/idea_item.dart';
 import 'package:musicaster/app/repository/idea_repo.dart';

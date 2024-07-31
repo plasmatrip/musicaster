@@ -108,7 +108,7 @@ class InstrumentRepo with ChangeNotifier {
     return _instrument.isNotEmpty();
   }
 
-  Iterable Instruments() {
+  Iterable instruments() {
     return repo.values;
   }
 }

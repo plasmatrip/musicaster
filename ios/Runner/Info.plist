@@ -49,5 +49,9 @@
 	<string>This application needs access to your phone's camera so that you can take a picture of the musical instrument.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This application needs access to the photo gallery so that you can select a picture of the musical instrument.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires Mic permission.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>This application needs access to your storage to allow you to upload audio files.</string>
 </dict>
 </plist>

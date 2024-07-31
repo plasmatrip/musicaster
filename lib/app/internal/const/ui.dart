@@ -25,15 +25,4 @@ extension UI on BuildContext {
 
   TextStyle get s18w400b => TextStyle(fontSize: 18.h, fontFamily: 'Belgrano', fontWeight: FontWeight.w400);
   TextStyle get s16w400b => TextStyle(fontSize: 16.h, fontFamily: 'Belgrano', fontWeight: FontWeight.w400);
-
-  // ButtonStyle get extraBtn => FilledButton.styleFrom(
-  //       fixedSize: Size(335.w, 40.h),
-  //       padding: EdgeInsets.symmetric(horizontal: 16.w),
-  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.h)),
-  //       backgroundColor: dayBasePrimary,
-  //       foregroundColor: white,
-  //       disabledBackgroundColor: grey,
-  //       disabledForegroundColor: greyDark,
-  //       textStyle: s17w600,
-  //     );
 }
